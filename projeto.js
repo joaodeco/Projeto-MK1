@@ -227,7 +227,6 @@ rl.question('Digite o número da sua opção:' , (opçao) => {
 
 function exibirMenuListagem(){
     console.log(`
-      
     x-----------Menu----------x
     |  1. Plano Terreno       |
     |  2. Submundo            |
@@ -236,12 +235,42 @@ function exibirMenuListagem(){
     |  5. Reino da ordem      | 
     |  6. Edenia              |
     |  7. DLC                 |
+    |  8. Voltar o menu       |
     x-------------------------x
-        `)
-
-
-
-    rl.question('Escolha o reino que seu lutador defende' , (escolha) => {
-
-    })
+    `)
 }
+
+
+rl.question('Escolha o reino que seu lutador defende') , (escolha) => {
+    switch(escolha){
+        case'1':
+            exibirPlanoTerreno()
+            break
+        case'2':
+            exibirSubmundo()
+            break
+        case'3':
+            exibirMundoExterior()
+            break
+        case'4':
+            exibirReinoDoCaos()
+            break
+        case'5':
+            exibirReinoDaOrdem()
+            break
+        case'6':
+            exibirEdenia()
+            break
+        case'7':
+        exiirDlc()
+            break
+        case'8':
+            exibirMenuPrincipal()
+            break
+        default:
+            console.log('Caractere invalido!')
+            exibirMenuListagem()
+            break
+    }
+}
+
