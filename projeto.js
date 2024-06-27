@@ -169,12 +169,79 @@ edenia.push(tanya)
 let dlc = []
 
 let pacificador = {
-    nome: 'Pacificado',
+    nome: 'Pacificador',
     habilidades: 'Mestre em artes marciais, estrategista, armas de fogo',
     origem: 'DC Comics'
 }
 dlc.push(pacificador)
 
+let homelander = {
+    nome: 'Homelander',
+    habilidades: 'Voar, super força e super audição, pode ver através de quase tudo (exceto zinco) com a sua visão de raio X e depois destruí-lo com os seus olhos laser',
+    origem: 'Série The Boys'
+}
+dlc.push(homelander)
+
+let omniMan = {
+    nome: 'Omni Man, Nolan Grayson',
+    habilidades: 'Quase Invulnerabilidade. Cura Aprimorada. Capacidade Pulmonar Aprimorada.',
+    origem: 'Série Invencivel'
+}
+dlc.push(omniMan)
+
+exibirMenuPrincipal()
+
+function exibirMenuPrincipal(){
+    console.log(`
+    x-------------Menu------------x
+    |  1. Exibir menu de listagem |
+    |  2. Cadastrar player        |
+    |  3. Listar todos os players |
+    |  4. SAIR                    |
+    x-----------------------------x
+        
+   `)
+}
+
+rl.question('Digite o número da sua opção:' , (opçao) => {
+    switch(opçao){
+        case '1':
+            exibirMenuListagem()
+            break
+        case'2':
+            cadastrarPlayer()
+            break
+        case'3':
+            listarPlayers()
+            break
+        case'4':
+            console.log('SAINDO!!')
+            rl.close()
+            break
+        default:
+            console.log('Caractere invalido, tente novamente!')
+            exibirMenuPrincipal()
+            break
+    }
+})
+
+function exibirMenuListagem(){
+    console.log(`
+      
+    x-----------Menu----------x
+    |  1. Plano Terreno       |
+    |  2. Submundo            |
+    |  3. Mundo Esterior      |
+    |  4. Reino do caos       |
+    |  5. Reino da ordem      | 
+    |  6. Edenia              |
+    |  7. DLC                 |
+    x-------------------------x
+        `)
 
 
 
+    rl.question('Escolha o reino que seu lutador defende' , (escolha) => {
+
+    })
+}
