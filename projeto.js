@@ -238,10 +238,7 @@ function exibirMenuListagem(){
     |  8. Voltar o menu       |
     x-------------------------x
     `)
-}
-
-
-rl.question('Escolha o reino que seu lutador defende') , (escolha) => {
+rl.question('Escolha o reino que seu lutador defende', (escolha) => {
     switch(escolha){
         case'1':
             exibirPlanoTerreno()
@@ -272,5 +269,57 @@ rl.question('Escolha o reino que seu lutador defende') , (escolha) => {
             exibirMenuListagem()
             break
     }
+})
+}
+
+function exibirPlanoTerreno(){
+    console.log(`
+    Os lutadores que defenden o plano terreno são:
+    Nome:${planoTerreno[0].nome}
+    Habilidades/Armas:${planoTerreno[0].habilidades}
+    Origem:${planoTerreno[0].origem}
+
+    Nome:${planoTerreno[1].nome}
+    Habilidades/Armas:${planoTerreno[1].habilidades}
+    Origem:${planoTerreno[1].origem}
+
+    Nome:${planoTerreno[2].nome}
+    Habilidades/Armas:${planoTerreno[2].habilidades}
+    Origem:${planoTerreno[2].origem}
+
+    Nome:${planoTerreno[3].nome}
+    Habilidades/Armas:${planoTerreno[3].habilidades}
+    Origem:${planoTerreno[3].origem}
+
+    Nome:${planoTerreno[4].nome}
+    Habilidades/Armas:${planoTerreno[4].habilidades}
+    Origem:${planoTerreno[4].origem}
+
+    Nome:${planoTerreno[5].nome}
+    Habilidades/Armas:${planoTerreno[5].habilidades}
+    Origem:${planoTerreno[5].origem}
+
+    Nome:${planoTerreno[6].nome}
+    Habilidades/Armas:${planoTerreno[6].habilidades}
+    Origem:${planoTerreno[6].origem}
+
+    `)
+    exibirMenuListagem()
+}
+
+function exibirSubmundo(){
+    console.log(`Os lutadores que deferndem o submundo são
+    Nome:${submundo[0].nome}
+    Habilidades/Armas.${submundo[0].habilidades}
+    Origem:${submundo[0]}
+
+    Nome:${submundo[1].nome}
+    Habilidades/Armas.${submundo[1].habilidades}
+    Origem:${submundo[1]}
+
+    Nome:${submundo[2].nome}
+    Habilidades/Armas.${submundo[2].habilidades}
+    Origem:${submundo[2].origem}
+    `)
 }
 
