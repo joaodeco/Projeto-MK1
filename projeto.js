@@ -275,6 +275,7 @@ rl.question('Escolha o reino que seu lutador defende', (escolha) => {
 function exibirPlanoTerreno(){
     console.log(`
     Os lutadores que defenden o plano terreno são:
+
     Nome:${planoTerreno[0].nome}
     Habilidades/Armas:${planoTerreno[0].habilidades}
     Origem:${planoTerreno[0].origem}
@@ -308,18 +309,65 @@ function exibirPlanoTerreno(){
 }
 
 function exibirSubmundo(){
-    console.log(`Os lutadores que deferndem o submundo são
+    console.log(`
+    Os lutadores que defendem o submundo são:
+
     Nome:${submundo[0].nome}
-    Habilidades/Armas.${submundo[0].habilidades}
-    Origem:${submundo[0]}
+    Habilidades/Armas:${submundo[0].habilidades}
+    Origem:${submundo[0].origem}
 
     Nome:${submundo[1].nome}
-    Habilidades/Armas.${submundo[1].habilidades}
-    Origem:${submundo[1]}
+    Habilidades/Armas:${submundo[1].habilidades}
+    Origem:${submundo[1].origem}
 
     Nome:${submundo[2].nome}
-    Habilidades/Armas.${submundo[2].habilidades}
+    Habilidades/Armas:${submundo[2].habilidades}
     Origem:${submundo[2].origem}
     `)
 }
 
+function exibirMundoExterior(){
+    console.log(`
+    Os lutadores que defendem o submundo são:
+
+    Nome:${mundoExterior[0].nome}
+    Habilidades/Armas:${mundoExterior[0].habilidades}
+    Origem:${mundoExterior[0].origem}
+
+    Nome:${mundoExterior[1].nome}
+    Habilidades/Armas:${mundoExterior[1].habilidades}
+    Origem:${mundoExterior[1].origem}
+
+    Nome:${mundoExterior[2].nome}
+    Habilidades/Armas:${mundoExterior[2].habilidades}
+    Origem:${mundoExterior[2].origem}
+
+    Nome:${mundoExterior[3].nome}
+    Habilidades/Armas:${mundoExterior[3].habilidades}
+    Origem:${mundoExterior[3].origem}
+
+    Nome:${mundoExterior[4].nome}
+    Habilidades/Armas:${mundoExterior[4].habilidades}
+    Origem:${mundoExterior[4].origem}
+
+    Nome:${mundoExterior[5].nome}
+    Habilidades/Armas:${mundoExterior[5].habilidades}
+    Origem:${mundoExterior[5].origem}
+
+    Nome:${mundoExterior[6].nome}
+    Habilidades/Armas:${mundoExterior[6].habilidades}
+    Origem:${mundoExterior[6].origem}
+
+    `)
+
+}
+
+function exibirReinoDoCaos(){
+    console.log(`
+    Os lutadores que defendem o Reino Do caos são:
+
+    Nome:${reinoDoCaos[0].nome}
+    Habilidades/Armas:${reinoDoCaos[0].habilidade}
+    Origem:${reinoDoCaos[0].origem}
+    `)
+}
