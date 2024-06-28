@@ -72,6 +72,12 @@ app.post('/players', (req, res) => {
     res.status(201).json(newPlayer);
 });
 
+app.delete('/players/:nome', (req, res) => {
+    const nome = req.params.nome;
+    players = players.filter(player => player.nome !== nome);
+    res.status(200).json({ message: 'Player removido com sucesso' });
+});
+
 app.get('/reino/:nome', (req, res) => {
     const nome = req.params.nome;
     let characters;
@@ -108,5 +114,4 @@ app.get('/reino/:nome', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
-
-
+    

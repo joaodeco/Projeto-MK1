@@ -19,6 +19,7 @@ function showListPlayers() {
                     <h3>${player.nome}</h3>
                     <p><strong>Favorito:</strong> ${player.favorito}</p>
                     <p><strong>Habilidade:</strong> ${player.habilidadePlayer}</p>
+                    <button onclick="removePlayer('${player.nome}')">Remover</button>
                 `;
                 contentDiv.appendChild(playerDiv);
             });
@@ -60,6 +61,21 @@ function registerPlayer() {
         showMenu();
     })
     .catch(error => console.error('Error registering player:', error));
+}
+
+function removePlayer(nome) {
+    fetch(`/players/${nome}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Player removido com sucesso!');
+            showListPlayers();
+        } else {
+            alert('Erro ao remover player.');
+        }
+    })
+    .catch(error => console.error('Error removing player:', error));
 }
 
 function showListagemMenu() {
@@ -105,6 +121,3 @@ function exit() {
         showMenu();
     }, 1000);
 }
-
-
-
