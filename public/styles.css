@@ -1,0 +1,87 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('caminho/para/sua/imagem.jpg'); /* Substitua pelo caminho da imagem desejada */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos para botões */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Cor verde, você pode alterar para a cor desejada */
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #45a049; /* Cor mais escura ao passar o mouse */
+}
+
+/* Estilos para a lista de players */
+.players-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.player-item {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo com transparência */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.player-item h3 {
+    margin-bottom: 5px;
+}
+
+.player-item p {
+    margin: 5px 0;
+}
+
+/* Estilos para formulários */
+.form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo com transparência */
+    border-radius: 10px;
+}
+
+.form input[type="text"],
+.form input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form input[type="submit"] {
+    background-color: #008CBA; /* Cor azul, você pode alterar para a cor desejada */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #007AAB; /* Cor mais escura ao passar o mouse */
+}
