@@ -32,7 +32,7 @@ planoTerreno.push(johnnyCage)
 
 let raiden = {
     nome: 'Raiden',
-    habilidade: 'Manipulação de raios a sua vontade, teleporte, bastão,voo',
+    habilidades: 'Manipulação de raios a sua vontade, teleporte, bastão,voo',
     origem: 'Plano Terreno'
 }
 planoTerreno.push(raiden)
@@ -144,7 +144,7 @@ reinoDoCaos.push(havik)
 let reinoDaOrdem = []
 
 let hotaru = {
-    nome: 'Bakara',
+    nome: 'Hotaru',
     habilidades: 'Manipulação de lava e plasma',
     origem: 'Reino da Ordem'
 }
@@ -201,75 +201,75 @@ function exibirMenuPrincipal(){
     x-----------------------------x
         
    `)
-}
 
-rl.question('Digite o número da sua opção:' , (opçao) => {
-    switch(opçao){
-        case '1':
-            exibirMenuListagem()
-            break
-        case'2':
-            cadastrarPlayer()
-            break
-        case'3':
-            listarPlayers()
-            break
-        case'4':
-            console.log('SAINDO!!')
-            rl.close()
-            break
-        default:
-            console.log('Caractere invalido, tente novamente!')
-            exibirMenuPrincipal()
-            break
-    }
-})
 
-function exibirMenuListagem(){
-    console.log(`
-    x-----------Menu----------x
-    |  1. Plano Terreno       |
-    |  2. Submundo            |
-    |  3. Mundo Esterior      |
-    |  4. Reino do caos       |
-    |  5. Reino da ordem      | 
-    |  6. Edenia              |
-    |  7. DLC                 |
-    |  8. Voltar o menu       |
-    x-------------------------x
-    `)
-rl.question('Escolha o reino que seu lutador defende', (escolha) => {
-    switch(escolha){
-        case'1':
-            exibirPlanoTerreno()
-            break
-        case'2':
-            exibirSubmundo()
-            break
-        case'3':
-            exibirMundoExterior()
-            break
-        case'4':
-            exibirReinoDoCaos()
-            break
-        case'5':
-            exibirReinoDaOrdem()
-            break
-        case'6':
-            exibirEdenia()
-            break
-        case'7':
-        exiirDlc()
-            break
-        case'8':
-            exibirMenuPrincipal()
-            break
-        default:
-            console.log('Caractere invalido!')
-            exibirMenuListagem()
-            break
+    rl.question('Digite o número da sua opção:' , (opçao) => {
+        switch(opçao){
+            case '1':
+                exibirMenuListagem()
+                break
+            case'2':
+                cadastrarPlayer()
+                break
+            case'3':
+                listarPlayers()
+                break
+            case'4':
+                console.log('SAINDO!!')
+                rl.close()
+                break
+            default:
+                console.log('Caractere invalido, tente novamente!')
+                exibirMenuPrincipal()
+                break
+        }
+    })
     }
-})
+    function exibirMenuListagem(){
+        console.log(`
+        x----------=Menu=---------x
+        |  1. Plano Terreno       |
+        |  2. Submundo            |
+        |  3. Mundo Esterior      |
+        |  4. Reino do caos       |
+        |  5. Reino da ordem      | 
+        |  6. Edênia              |
+        |  7. DLC                 |
+        |  8. Voltar o menu       |
+        x-------------------------x
+        `)
+    rl.question('Escolha o reino que seu lutador defende: ', (escolha) => {
+        switch(escolha){
+            case'1':
+                exibirPlanoTerreno()
+                break
+            case'2':
+                exibirSubmundo()
+                break
+            case'3':
+                exibirMundoExterior()
+                break
+            case'4':
+                exibirReinoDoCaos()
+                break
+            case'5':
+                exibirReinoDaOrdem()
+                break
+            case'6':
+                exibirEdenia()
+                break
+            case'7':
+                exibirDlc()
+                break
+            case'8':
+                exibirMenuPrincipal()
+                break
+            default:
+                console.log('Caractere invalido!, tente novamente.')
+                exibirMenuListagem()
+                break
+        }
+    })
 }
 
 function exibirPlanoTerreno(){
@@ -324,6 +324,7 @@ function exibirSubmundo(){
     Habilidades/Armas:${submundo[2].habilidades}
     Origem:${submundo[2].origem}
     `)
+    exibirMenuListagem()
 }
 
 function exibirMundoExterior(){
@@ -359,15 +360,150 @@ function exibirMundoExterior(){
     Origem:${mundoExterior[6].origem}
 
     `)
-
+    exibirMenuListagem()
 }
 
 function exibirReinoDoCaos(){
     console.log(`
-    Os lutadores que defendem o Reino Do caos são:
+    Os lutadores que defendem o Reino Do Caos são:
 
     Nome:${reinoDoCaos[0].nome}
     Habilidades/Armas:${reinoDoCaos[0].habilidade}
     Origem:${reinoDoCaos[0].origem}
     `)
+    exibirMenuListagem()
+}
+
+function exibirReinoDaOrdem(){
+    console.log(`
+    Os lutadores que defendem o Reino Da Ordem são:
+    
+    Nome:${reinoDaOrdem[0].nome}
+    Habilidades/Armas:${reinoDaOrdem[0].habilidades}
+    Origem:${reinoDaOrdem[0].origem}
+    `)
+    exibirMenuListagem()
+}
+
+function exibirEdenia(){
+    console.log(`
+    Os lutadores que defendem Edênia são:
+        
+    Nome:${edenia[0].nome}
+    Habilidades/Armas:${edenia[0].habilidades}
+    Origem:${edenia[0].origem}
+    
+    Nome:${edenia[1].nome}
+    Habilidades/Armas:${edenia[1].habilidades}
+    Origem:${edenia[1].origem}
+    `)
+    exibirMenuListagem()
+}
+
+function exibirDlc(){
+    console.log(`
+    Os lutadores da DLC são:
+
+    Nome:${dlc[0].nome}
+    Habilidades/Armas:${dlc[0].habilidades}
+    Origem:${dlc[0].origem}
+
+    Nome:${dlc[1].nome}
+    Habilidades/Armas:${dlc[1].habilidades}
+    Origem:${dlc[1].origem}
+
+    Nome:${dlc[2].nome}
+    Habilidades/Armas:${dlc[2].habilidades}
+    Origem:${dlc[2].origem}
+    `)
+    exibirMenuListagem()
+}
+
+function cadastrarPlayer(){
+    rl.question('Qual o nome do novo Player? ' , (nome) =>{
+        rl.question('Qual o personagem favorito desse player? ' , (favorito) =>{
+            rl.question('De 0 a 10 qual o nivel de habilidade desse player ? ' , (habilidadePlayer) =>{
+                players.push({nome, favorito, habilidadePlayer})
+                console.log('Seu player foi adicionado ao Time')
+                exibirMenuPrincipal()
+            })
+        })
+    })
+}
+
+let murilo = {
+    nome: 'Murilo',
+    favorito: 'Rain',
+    habilidadePlayer: 8
+}
+players.push(murilo)
+
+let patrão = {
+    nome: 'Gabrielzão',
+    favorito: 'Liu Kang',
+    habilidadePlayer: 10
+}
+players.push(patrão)
+
+let conrado = {
+    nome: 'Conrado',
+    favorito: 'Scorpion',
+    habilidadePlayer: 8
+}
+players.push(conrado)
+
+let carlos = {
+    nome: 'Carlos Assunção',
+    favorito: 'Jhony Cage',
+    habilidadePlayer: 8
+}
+players.push(carlos)
+
+let eduardo = {
+    nome: 'Eduardo',
+    favorito: 'Sub Zero',
+    habilidadePlayer: 8
+}
+players.push(eduardo)
+
+let bruno = {
+    nome: 'Bruno',
+    favorito: 'Qualquer um',
+    habilidadePlayer: 9
+}
+players.push(bruno)
+
+
+function listarPlayers(){
+    if(players == 0){
+        console.log('Nenhum player encontrado, cadastre um player e tente listar novamente!')
+    }else{
+        console.log(`
+            Aqui estão todos os nossos players:
+
+            Seu nome é: ${players[0].nome}
+            Seu personagem favorito é: ${players[0].favorito}
+            Seu nivel de habilidade é : ${players[0].habilidadePlayer}
+
+            Seu nome é: ${players[1].nome}
+            Seu personagem favorito é: ${players[1].favorito}
+            Seu nivel de habilidade é : ${players[1].habilidadePlayer}
+
+            Seu nome é: ${players[2].nome}
+            Seu personagem favorito é: ${players[2].favorito}
+            Seu nivel de habilidade é : ${players[2].habilidadePlayer}
+
+            Seu nome é: ${players[3].nome}
+            Seu personagem favorito é: ${players[3].favorito}
+            Seu nivel de habilidade é : ${players[3].habilidadePlayer}
+
+            Seu nome é: ${players[4].nome}
+            Seu personagem favorito é: ${players[4].favorito}
+            Seu nivel de habilidade é : ${players[4].habilidadePlayer}
+
+            Seu nome é: ${players[5].nome}
+            Seu personagem favorito é: ${players[5].favorito}
+            Seu nivel de habilidade é : ${players[5].habilidadePlayer}
+        `)
+    }
 }
