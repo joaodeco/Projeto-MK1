@@ -6,12 +6,11 @@ app.use(express.json());
 app.use(express.static('public'));
 
 let players = [
-    { nome: 'Murilo', favorito: 'Rain', habilidadePlayer: 8 },
-    { nome: 'Gabrielzão', favorito: 'Liu Kang', habilidadePlayer: 10 },
     { nome: 'Conrado', favorito: 'Scorpion', habilidadePlayer: 8 },
     { nome: 'Carlos Assunção', favorito: 'Jhony Cage', habilidadePlayer: 8 },
     { nome: 'Eduardo', favorito: 'Sub Zero', habilidadePlayer: 8 },
-    { nome: 'Bruno', favorito: 'Qualquer um', habilidadePlayer: 9 }
+    { nome: 'Gabrielzão', favorito: 'Liu Kang', habilidadePlayer: 10 },
+    { nome: 'Murilo', favorito: 'Rain', habilidadePlayer: 8 }
 ];
 
 app.get('/players', (req, res) => {

@@ -2,10 +2,10 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-image: url('https://files.tecnoblog.net/wp-content/uploads/2021/05/Mortal-kombat-linha-do-tempo-009.jpg');
+    background-repeat: repeat-y; /* Repetir verticalmente */
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
-    color: white;
+    color: rgb(252, 252, 252); /* Letras pretas */
     text-align: center;
     margin: 0;
     padding: 0;
@@ -14,6 +14,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    overflow-x: hidden; /* Esconder overflow horizontal */
 }
 
 h1 {
@@ -22,7 +23,6 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Container para centralizar o conteúdo */
 .container {
     max-width: 800px;
     width: 100%;
@@ -61,47 +61,50 @@ button:active {
     transform: translateY(0);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
-body {
-    background-image: url('https://files.tecnoblog.net/wp-content/uploads/2021/05/Mortal-kombat-linha-do-tempo-009.jpg');
-    background-repeat: repeat-y;
-    background-size: cover;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: white;
-}
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Adicione uma cor de fundo para melhorar a legibilidade */
+/* Estilo para os players listados */
+.player {
+    background-color: rgba(255, 255, 255, 0.5); /* Fundo branco meio transparente */
+    padding: 10px;
+    margin: 10px 0;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
 }
 
-h1 {
-    text-align: center;
+.player h3 {
+    margin: 5px 0;
 }
 
-#menu {
-    text-align: center;
-    margin-bottom: 20px;
+.player p {
+    margin: 5px 0;
 }
 
-button {
-    margin: 5px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
+#listagemMenu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#listagemMenu button {
+    width: 150px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(255, 69, 0, 0.8); /* Laranja */
     color: white;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-button:hover {
-    background-color: #45a049;
+#listagemMenu button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-#content {
-    margin-top: 20px;
+#listagemMenu button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
