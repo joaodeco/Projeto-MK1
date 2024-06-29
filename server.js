@@ -22,17 +22,16 @@ let planoTerreno = [
 ];
 
 let submundo = [
-    { nome: 'Skorpion, Hanzo Hasashi', habilidades: 'Usa uma kunai amarrada com uma corrente, manipulação de fogo do inferno, habilidades ninja, teleporte', origem: 'Submundo' },
-    { nome: 'Noob Saibot, Bi-Han', habilidades: 'Manipulação de sua sombra, foice em meia lua, teleporte', origem: 'Submundo' },
-    { nome: 'Quan Chi', habilidades: 'Feitiçaria do submundo, magia necromanciosa, espadas duplas', origem: 'Submundo' }
+    { nome: 'Scorpion, Hanzo Hasashi', habilidades: 'Correntes afiadas, se teletransporta, força, agilidade, resistência, capacidade de cuspir fogo em seus inimigos', origem: 'Submundo' },
+    { nome: 'Quan Chi', habilidades: 'Necromancia, teleporte, telecinese, força, manipulação de almas e esqueletos', origem: 'Submundo' },
+    { nome: 'Noob Saibot', habilidades: 'Invoca sombras para atacar seus adversários e abrir portais para outros reinos, teleporte, foice', origem: 'Submundo' }
 ];
 
 let mundoExterior = [
-    { nome: 'Mileena', habilidades: 'Letal, rápida e extremamente ágil, usa duas sais (arma ninja)', origem: 'Mundo Exterior' },
-    { nome: 'Kitana', habilidades: 'Letal, rápida e extremamente ágil, usa dois leques com lâminas (irmã mais velha de Mileena)', origem: 'Mundo Exterior' },
-    { nome: 'Shao Kahn, General Shao', habilidades: 'Lançar bolas de fogo, criar portais, absorver almas, martelo de guerra e muita resistência', origem: 'Mundo Exterior' },
-    { nome: 'Sindel', habilidades: 'A capacidade de voar, manipular as ondas sonoras com seu grito sônico e usar seu cabelo comprido e letal nas lutas', origem: 'Mundo Exterior' },
-    { nome: 'Baraka', habilidades: 'Garras que saem da parte de cima de seu punho e usa nas batalhas, dentes afiados e estilo de luta imprevisível', origem: 'Mundo Exterior' },
+    { nome: 'Kitana', habilidades: 'Força, agilidade, reflexos, resistência, leques de aço, teleporte', origem: 'Mundo Exterior' },
+    { nome: 'Mileena', habilidades: 'Força, agilidade, reflexos, resistência, sais, teleporte', origem: 'Mundo Exterior' },
+    { nome: 'Baraka', habilidades: 'Força, agilidade, reflexos, resistência, lâminas retráteis, teleporte', origem: 'Mundo Exterior' },
+    { nome: 'Shao Kahn', habilidades: 'Força, agilidade, reflexos, resistência, martelo de guerra, teleporte', origem: 'Mundo Exterior' },
     { nome: 'Shang Tsung', habilidades: 'Shang Tsung é um feiticeiro e é capaz de lançar bolas de fogo de suas mãos, criar portais e absorver almas de outros guerreiros e tomando sua forma', origem: 'Mundo Exterior' },
     { nome: 'Reptile, Syzoth', habilidades: 'Habilidades de camuflagem, bolas de ácido que derretem os inimigos, teleporte', origem: 'Mundo Exterior' },
     { nome: 'Goro', habilidades: 'Força, agilidade, resistência, socos devastadores', origem: 'Mundo Exterior' },
@@ -66,10 +65,31 @@ app.get('/players', (req, res) => {
     res.json(players);
 });
 
+app.get('/players/:nome', (req, res) => {
+    const nome = req.params.nome;
+    const player = players.find(p => p.nome === nome);
+    if (player) {
+        res.json(player);
+    } else {
+        res.status(404).json({ message: 'Player não encontrado' });
+    }
+});
+
 app.post('/players', (req, res) => {
     const newPlayer = req.body;
     players.push(newPlayer);
     res.status(201).json(newPlayer);
+});
+
+app.put('/players/:nome', (req, res) => {
+    const nome = req.params.nome;
+    const index = players.findIndex(p => p.nome === nome);
+    if (index !== -1) {
+        players[index] = req.body;
+        res.json(players[index]);
+    } else {
+        res.status(404).json({ message: 'Player não encontrado' });
+    }
 });
 
 app.delete('/players/:nome', (req, res) => {
@@ -114,4 +134,3 @@ app.get('/reino/:nome', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
-    

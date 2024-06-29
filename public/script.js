@@ -19,6 +19,7 @@ function showListPlayers() {
                     <h3>${player.nome}</h3>
                     <p><strong>Favorito:</strong> ${player.favorito}</p>
                     <p><strong>Habilidade:</strong> ${player.habilidadePlayer}</p>
+                    <button onclick="editPlayer('${player.nome}')">Editar</button>
                     <button onclick="removePlayer('${player.nome}')">Remover</button>
                 `;
                 contentDiv.appendChild(playerDiv);
@@ -63,21 +64,6 @@ function registerPlayer() {
     .catch(error => console.error('Error registering player:', error));
 }
 
-function removePlayer(nome) {
-    fetch(`/players/${nome}`, {
-        method: 'DELETE',
-    })
-    .then(response => {
-        if (response.ok) {
-            alert('Player removido com sucesso!');
-            showListPlayers();
-        } else {
-            alert('Erro ao remover player.');
-        }
-    })
-    .catch(error => console.error('Error removing player:', error));
-}
-
 function showListagemMenu() {
     const contentDiv = document.getElementById('content');
     contentDiv.innerHTML = `
@@ -112,6 +98,14 @@ function showReino(reino) {
             });
         })
         .catch(error => console.error('Error fetching characters:', error));
+}
+
+function editPlayer(nome) {
+    // Implementação da função de edição de player
+}
+
+function removePlayer(nome) {
+    // Implementação da função de remoção de player
 }
 
 function exit() {
