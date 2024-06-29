@@ -61,3 +61,47 @@ button:active {
     transform: translateY(0);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
+body {
+    background-image: url('https://files.tecnoblog.net/wp-content/uploads/2021/05/Mortal-kombat-linha-do-tempo-009.jpg');
+    background-repeat: repeat-y;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Adicione uma cor de fundo para melhorar a legibilidade */
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#menu {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#content {
+    margin-top: 20px;
+}

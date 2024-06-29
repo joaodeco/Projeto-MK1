@@ -11,7 +11,9 @@ function showListPlayers() {
         .then(response => response.json())
         .then(players => {
             const contentDiv = document.getElementById('content');
-            contentDiv.innerHTML = '';
+            contentDiv.innerHTML = `
+                <button onclick="showMenu()">Voltar ao Menu Principal</button>
+            `;
             players.forEach(player => {
                 const playerDiv = document.createElement('div');
                 playerDiv.className = 'player';
@@ -100,12 +102,68 @@ function showReino(reino) {
         .catch(error => console.error('Error fetching characters:', error));
 }
 
+
 function editPlayer(nome) {
-    // Implementação da função de edição de player
+    fetch(`/players/${nome}`)
+        .then(response => response.json())
+        .then(player => {
+            const { nome, favorito, habilidadePlayer } = player;
+            const form = `
+                <form id="editPlayerForm">
+                    <label for="nomeEdit">Nome:</label><br>
+                    <input type="text" id="nomeEdit" name="nome" value="${nome}" readonly><br>
+                    <label for="favoritoEdit">Personagem Favorito:</label><br>
+                    <input type="text" id="favoritoEdit" name="favorito" value="${favorito}"><br>
+                    <label for="habilidadePlayerEdit">Nível de Habilidade:</label><br>
+                    <input type="number" id="habilidadePlayerEdit" name="habilidadePlayer" min="0" max="10" value="${habilidadePlayer}"><br>
+                    <button type="button" onclick="updatePlayer('${nome}')">Salvar</button>
+                    <button type="button" onclick="cancelEdit()">Cancelar</button>
+                </form>
+            `;
+            document.getElementById('content').innerHTML = form;
+        })
+        .catch(error => console.error('Error fetching player:', error));
+}
+
+function updatePlayer(nome) {
+    const form = document.getElementById('editPlayerForm');
+    const favorito = form.favoritoEdit.value;
+    const habilidadePlayer = form.habilidadePlayerEdit.value;
+
+    fetch(`/players/${nome}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ favorito, habilidadePlayer }),
+    })
+    .then(response => response.json())
+    .then(updatedPlayer => {
+        alert('Player atualizado com sucesso!');
+        showListPlayers();
+    })
+    .catch(error => console.error('Error updating player:', error));
+}
+
+function cancelEdit() {
+    showListPlayers();
 }
 
 function removePlayer(nome) {
-    // Implementação da função de remoção de player
+    if (confirm(`Tem certeza que deseja remover ${nome}?`)) {
+        fetch(`/players/${nome}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Player removido com sucesso!');
+                showListPlayers();
+            } else {
+                throw new Error('Erro ao remover player');
+            }
+        })
+        .catch(error => console.error('Error removing player:', error));
+    }
 }
 
 function exit() {
