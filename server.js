@@ -13,6 +13,37 @@ let players = [
     { nome: 'Murilo', favorito: 'Rain', habilidadePlayer: 8 }
 ];
 
+// Simulação de personagens por reino
+const reinos = {
+    planoTerreno: [
+        { nome: 'Scorpion', habilidades: 'Fogo', origem: 'Netherrealm' },
+        { nome: 'Sub Zero', habilidades: 'Gelo', origem: 'Earthrealm' }
+    ],
+    submundo: [
+        { nome: 'Quan Chi', habilidades: 'Feitiçaria', origem: 'Netherrealm' },
+        { nome: 'Noob Saibot', habilidades: 'Sombra', origem: 'Netherrealm' }
+    ],
+    mundoExterior: [
+        { nome: 'Raiden', habilidades: 'Relâmpagos', origem: 'Heavens' },
+        { nome: 'Shao Kahn', habilidades: 'Conquistador', origem: 'Outworld' }
+    ],
+    reinoDoCaos: [
+        { nome: 'Havik', habilidades: 'Anarquia', origem: 'Chaosrealm' }
+    ],
+    reinoDaOrdem: [
+        { nome: 'Kotal Kahn', habilidades: 'Sol', origem: 'Outworld' },
+        { nome: 'Skarlet', habilidades: 'Sangue', origem: 'Outworld' }
+    ],
+    edenia: [
+        { nome: 'Kitana', habilidades: 'Levitação', origem: 'Edenia' },
+        { nome: 'Jade', habilidades: 'Armas', origem: 'Edenia' }
+    ],
+    dlc: [
+        { nome: 'Spawn', habilidades: 'Demoníaco', origem: 'Hell' },
+        { nome: 'Rambo', habilidades: 'Armas', origem: 'Earthrealm' }
+    ]
+};
+
 app.get('/players', (req, res) => {
     res.json(players);
 });
@@ -48,6 +79,17 @@ app.delete('/players/:nome', (req, res) => {
     const nome = req.params.nome;
     players = players.filter(p => p.nome !== nome);
     res.status(204).end();
+});
+
+// Rota para obter personagens por reino
+app.get('/reino/:reino', (req, res) => {
+    const reino = req.params.reino;
+    const characters = reinos[reino];
+    if (characters) {
+        res.json(characters);
+    } else {
+        res.status(404).json({ message: 'Reino não encontrado' });
+    }
 });
 
 app.listen(port, () => {

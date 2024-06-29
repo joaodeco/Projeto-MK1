@@ -11,9 +11,7 @@ function showListPlayers() {
         .then(response => response.json())
         .then(players => {
             const contentDiv = document.getElementById('content');
-            contentDiv.innerHTML = `
-                <button onclick="showMenu()">Voltar ao Menu Principal</button>
-            `;
+            contentDiv.innerHTML = '';
             players.forEach(player => {
                 const playerDiv = document.createElement('div');
                 playerDiv.className = 'player';
@@ -26,8 +24,56 @@ function showListPlayers() {
                 `;
                 contentDiv.appendChild(playerDiv);
             });
+
+            // Adicionar botão de voltar ao menu principal
+            const backButton = document.createElement('button');
+            backButton.textContent = 'Voltar ao Menu Principal';
+            backButton.onclick = showMenu;
+            contentDiv.appendChild(backButton);
         })
         .catch(error => console.error('Error fetching players:', error));
+}
+
+function showListagemMenu() {
+    const contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = `
+        <div id="listagemMenu">
+            <button onclick="showReino('planoTerreno')">Plano Terreno</button>
+            <button onclick="showReino('submundo')">Submundo</button>
+            <button onclick="showReino('mundoExterior')">Mundo Exterior</button>
+            <button onclick="showReino('reinoDoCaos')">Reino do Caos</button>
+            <button onclick="showReino('reinoDaOrdem')">Reino da Ordem</button>
+            <button onclick="showReino('edenia')">Edenia</button>
+            <button onclick="showReino('dlc')">DLC</button>
+            <button onclick="showMenu()">Voltar ao Menu Principal</button>
+        </div>
+    `;
+}
+
+function showReino(reino) {
+    fetch(`/reino/${reino}`)
+        .then(response => response.json())
+        .then(characters => {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = '';
+            characters.forEach(character => {
+                const characterDiv = document.createElement('div');
+                characterDiv.className = 'player';
+                characterDiv.innerHTML = `
+                    <h3>${character.nome}</h3>
+                    <p><strong>Habilidades:</strong> ${character.habilidades}</p>
+                    <p><strong>Origem:</strong> ${character.origem}</p>
+                `;
+                contentDiv.appendChild(characterDiv);
+            });
+
+            // Adicionar botão de voltar ao menu de listagem
+            const backButton = document.createElement('button');
+            backButton.textContent = 'Voltar ao Menu de Listagem';
+            backButton.onclick = showListagemMenu;
+            contentDiv.appendChild(backButton);
+        })
+        .catch(error => console.error('Error fetching characters:', error));
 }
 
 function showRegisterPlayer() {
@@ -65,43 +111,6 @@ function registerPlayer() {
     })
     .catch(error => console.error('Error registering player:', error));
 }
-
-function showListagemMenu() {
-    const contentDiv = document.getElementById('content');
-    contentDiv.innerHTML = `
-        <div id="listagemMenu">
-            <button onclick="showReino('planoTerreno')">Plano Terreno</button>
-            <button onclick="showReino('submundo')">Submundo</button>
-            <button onclick="showReino('mundoExterior')">Mundo Exterior</button>
-            <button onclick="showReino('reinoDoCaos')">Reino do Caos</button>
-            <button onclick="showReino('reinoDaOrdem')">Reino da Ordem</button>
-            <button onclick="showReino('edenia')">Edenia</button>
-            <button onclick="showReino('dlc')">DLC</button>
-            <button onclick="showMenu()">Voltar ao Menu Principal</button>
-        </div>
-    `;
-}
-
-function showReino(reino) {
-    fetch(`/reino/${reino}`)
-        .then(response => response.json())
-        .then(characters => {
-            const contentDiv = document.getElementById('content');
-            contentDiv.innerHTML = '';
-            characters.forEach(character => {
-                const characterDiv = document.createElement('div');
-                characterDiv.className = 'player';
-                characterDiv.innerHTML = `
-                    <h3>${character.nome}</h3>
-                    <p><strong>Habilidades:</strong> ${character.habilidades}</p>
-                    <p><strong>Origem:</strong> ${character.origem}</p>
-                `;
-                contentDiv.appendChild(characterDiv);
-            });
-        })
-        .catch(error => console.error('Error fetching characters:', error));
-}
-
 
 function editPlayer(nome) {
     fetch(`/players/${nome}`)
