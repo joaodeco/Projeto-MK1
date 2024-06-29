@@ -9,7 +9,7 @@ let players = [
     { nome: 'Conrado', favorito: 'Scorpion', habilidadePlayer: 8 },
     { nome: 'Carlos Assunção', favorito: 'Jhony Cage', habilidadePlayer: 8 },
     { nome: 'Eduardo', favorito: 'Sub Zero', habilidadePlayer: 8 },
-    { nome: 'Gabrielzão', favorito: 'Liu Kang', habilidadePlayer: 10 },
+    { nome: 'Gabrielzão', favorito: 'Liu Kang, ou não tbm cara joga com tudo', habilidadePlayer: 10 },
     { nome: 'Murilo', favorito: 'Rain', habilidadePlayer: 8 }
 ];
 
